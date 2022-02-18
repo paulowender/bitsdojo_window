@@ -1,15 +1,14 @@
-import 'dart:ffi';
-import 'dart:ui';
-import 'package:flutter/painting.dart';
+import 'dart:ffi' as _ffi;
 
+import 'package:bitsdojo_window_platform_interface/bitsdojo_window_platform_interface.dart';
 import 'package:ffi/ffi.dart';
+import 'package:flutter/painting.dart';
 import 'package:win32/win32.dart';
 
-import './win32_plus.dart';
 import './native_api.dart' as native;
-import 'package:bitsdojo_window_platform_interface/bitsdojo_window_platform_interface.dart';
-import './window_util.dart';
+import './win32_plus.dart';
 import './window_interface.dart';
+import './window_util.dart';
 
 var isInsideDoWhenWindowReady = false;
 
@@ -23,7 +22,8 @@ bool isValidHandle(int? handle, String operation) {
 
 Rect getScreenRectForWindow(int handle) {
   int monitor = MonitorFromWindow(handle, MONITOR_DEFAULTTONEAREST);
-  final monitorInfo = calloc<MONITORINFO>()..ref.cbSize = sizeOf<MONITORINFO>();
+  final monitorInfo = calloc<MONITORINFO>()
+    ..ref.cbSize = _ffi.sizeOf<MONITORINFO>();
   final result = GetMonitorInfo(monitor, monitorInfo);
   if (result == TRUE) {
     return Rect.fromLTRB(

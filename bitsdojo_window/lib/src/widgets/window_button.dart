@@ -1,11 +1,11 @@
+import 'dart:io' show Platform;
+
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 import './mouse_state_builder.dart';
-import '../icons/icons.dart';
 import '../app_window.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
-import 'dart:io' show Platform;
+import '../icons/icons.dart';
 
 typedef WindowButtonIconBuilder = Widget Function(
     WindowButtonContext buttonContext);

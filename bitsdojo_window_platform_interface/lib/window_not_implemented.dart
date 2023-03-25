@@ -1,6 +1,6 @@
-import './window.dart';
 import 'package:flutter/rendering.dart';
-import 'dart:ui';
+
+import './window.dart';
 
 class NotImplementedWindow extends DesktopWindow {
   int get handle {
